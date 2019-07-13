@@ -10,10 +10,10 @@ public class Main {
         ArrayList<String> words = new ArrayList<>();
         ArrayList<String> information = new ArrayList<>();
         try {
-            FileInputStream fs = new FileInputStream("./案情输出.txt");
+            FileInputStream fs = new FileInputStream("./案情特征词v1.1.txt");
             readTxt(words, fs);
         } catch (FileNotFoundException e) {
-            System.out.println("File can not be found!");
+            System.out.println("File 案情特征词 can not be found!");
         } catch (IOException e) {
             System.out.println("File read error!");
         }
@@ -22,12 +22,12 @@ public class Main {
             FileInputStream fs = new FileInputStream("./案情.txt");
             readTxt(information, fs);
         } catch (FileNotFoundException e) {
-            System.out.println("File can not be found!");
+            System.out.println("File 案情 can not be found!");
         } catch (IOException e) {
             System.out.println("File read error!");
         }
         kmeans.setVector(information);
-        KMeansData data = new KMeansData(kmeans.vector2Array(), 2566, 99); // 初始化数据结构
+        KMeansData data = new KMeansData(kmeans.vector2Array(), information.size(), words.size()); // 初始化数据结构
         KMeansParam param = new KMeansParam(); // 初始化参数结构
         param.initCenterMehtod = KMeansParam.CENTER_RANDOM; // 设置聚类中心点的初始化模式为随机模式
 

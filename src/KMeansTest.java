@@ -9,22 +9,22 @@ public class KMeansTest {
     private ArrayList<String> wordSet = new ArrayList<>();
     private HashMap<Integer, HashMap<Integer, Integer>> eigenVector = new HashMap<>();
 
-    private static final String rxWord = "(?<=[(][']).*(?=['])";
-    private static final String rxNum = "(?<=['][,]\\s)\\d*(?=[)])";
+    //private static final String rxWord = "(?<=[(][']).*(?=['])";
+    //private static final String rxNum = "(?<=['][,]\\s)\\d*(?=[)])";
     private int num = 0;
 
 
 
     public KMeansTest(ArrayList<String> words) {
-        Pattern patWord = Pattern.compile(rxWord);
-        Pattern patNum = Pattern.compile(rxNum);
+        //Pattern patWord = Pattern.compile(rxWord);
+        //Pattern patNum = Pattern.compile(rxNum);
         for (String word : words) {
-            Matcher matWord = patWord.matcher(word);
-            Matcher matNum = patNum.matcher(word);
-            if (matWord.find() && matNum.find()) {
-                wordMap.put(matWord.group(), Integer.parseInt(matNum.group()));
-                wordSet.add(matWord.group());
-            }
+            //Matcher matWord = patWord.matcher(word);
+            //Matcher matNum = patNum.matcher(word);
+            //if (matWord.find() && matNum.find()) {
+                //wordMap.put(matWord.group(), Integer.parseInt(matNum.group()));
+                wordSet.add(word.replace("\n", ""));
+            //}
         }
     }
 
